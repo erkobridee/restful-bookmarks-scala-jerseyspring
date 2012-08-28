@@ -1,4 +1,4 @@
-Scala - RESTful Bookmarks Spring REST API
+Scala - RESTful Bookmarks Jersey + Spring
 ====================================
 
 Exemplo de aplicação para salvar links, onde a interface utiliza AngularJS + Twitter Bootstrap e o lado do servidor utilizado o Jersey integrado com o Spring para disponibilizar um serviço de dados RESTful, que aceita uma comunicação JSON ou XML.
