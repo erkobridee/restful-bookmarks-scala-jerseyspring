@@ -6,7 +6,7 @@ import org.springframework.test.context.ContextConfiguration
 import org.junit.runner.RunWith
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner
 import com.erkobridee.restful.bookmarks.scala.jerseyspring.tests.Singleton._
-import com.erkobridee.restful.bookmarks.scala.jerseyspring.entity.Bookmark
+import com.erkobridee.restful.bookmarks.scala.jerseyspring.persistence.entity.Bookmark
 import junit.framework.Assert
 import org.junit.Test
 import java.util.List

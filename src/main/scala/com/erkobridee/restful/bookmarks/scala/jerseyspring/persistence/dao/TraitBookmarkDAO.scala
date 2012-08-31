@@ -1,7 +1,7 @@
-package com.erkobridee.restful.bookmarks.scala.jerseyspring.dao
+package com.erkobridee.restful.bookmarks.scala.jerseyspring.persistence.dao
 
 import java.util.List
-import com.erkobridee.restful.bookmarks.scala.jerseyspring.entity.Bookmark
+import com.erkobridee.restful.bookmarks.scala.jerseyspring.persistence.entity.Bookmark
 
 trait TraitBookmarkDAO {
 

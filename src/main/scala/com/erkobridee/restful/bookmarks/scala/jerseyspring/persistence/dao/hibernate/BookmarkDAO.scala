@@ -1,4 +1,4 @@
-package com.erkobridee.restful.bookmarks.scala.jerseyspring.dao.impl
+package com.erkobridee.restful.bookmarks.scala.jerseyspring.persistence.dao.hibernate
 
 import java.util.List
 import org.hibernate.SessionFactory
@@ -9,8 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.dao.DataAccessException
 import org.springframework.stereotype.Repository
 import org.springframework.transaction.annotation.Transactional
-import com.erkobridee.restful.bookmarks.scala.jerseyspring.entity.Bookmark
-import com.erkobridee.restful.bookmarks.scala.jerseyspring.dao.TraitBookmarkDAO
+import com.erkobridee.restful.bookmarks.scala.jerseyspring.persistence.entity.Bookmark
+import com.erkobridee.restful.bookmarks.scala.jerseyspring.persistence.dao.TraitBookmarkDAO
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport
 
 @Repository("bookmarkDAO")

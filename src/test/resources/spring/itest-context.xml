@@ -16,7 +16,7 @@
 	
 	<context:component-scan base-package="
 		com.erkobridee.restful.bookmarks.scala.jerseyspring.tests.itest,
-		com.erkobridee.restful.bookmarks.scala.jerseyspring.entity
+		com.erkobridee.restful.bookmarks.scala.jerseyspring.persistence.entity
 	" />
 
 	<import resource="module/rest-context.xml" />

@@ -1,4 +1,4 @@
-package com.erkobridee.restful.bookmarks.scala.jerseyspring.entity
+package com.erkobridee.restful.bookmarks.scala.jerseyspring.persistence.entity
 
 import scala.reflect.BeanProperty
 import javax.persistence.Column

@@ -8,10 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner
 
-import com.erkobridee.restful.bookmarks.scala.jerseyspring.entity.Bookmark
+import com.erkobridee.restful.bookmarks.scala.jerseyspring.persistence.entity.Bookmark
+import com.erkobridee.restful.bookmarks.scala.jerseyspring.persistence.dao.TraitBookmarkDAO
 import com.erkobridee.restful.bookmarks.scala.jerseyspring.tests.Singleton.vo
 import com.erkobridee.restful.bookmarks.scala.jerseyspring.tests.Singleton.{vo_= => vo_=}
-import com.erkobridee.restful.bookmarks.scala.jerseyspring.dao.TraitBookmarkDAO
 
 import javax.persistence.Entity
 import javax.persistence.Table

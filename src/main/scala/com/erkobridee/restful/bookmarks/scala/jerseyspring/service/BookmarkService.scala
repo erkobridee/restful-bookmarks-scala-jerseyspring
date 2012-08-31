@@ -5,11 +5,11 @@ import org.springframework.context.annotation.Scope
 import javax.ws.rs.Path
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
-import com.erkobridee.restful.bookmarks.scala.jerseyspring.dao.TraitBookmarkDAO
+import com.erkobridee.restful.bookmarks.scala.jerseyspring.persistence.dao.TraitBookmarkDAO
 import org.springframework.beans.factory.annotation.Autowired
 import javax.ws.rs.core.MediaType._
 import java.util.List
-import com.erkobridee.restful.bookmarks.scala.jerseyspring.entity.Bookmark
+import com.erkobridee.restful.bookmarks.scala.jerseyspring.persistence.entity.Bookmark
 import javax.ws.rs._
 
 @Component
