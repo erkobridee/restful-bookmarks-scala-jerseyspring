@@ -120,11 +120,11 @@ A definição do método a ser executado é definido no cabeçalho da requisiç�
 
 * **POST** - insere um novo bookmark
 
-	* [.../api/bookmarks/]() - enviado via post
+	* [.../api/bookmarks/]() - enviado no corpo da requisição
 
 * **PUT** - atualiza um bookmark existente
 
-	* [.../api/bookmarks/{id}]() - enviado via post 
+	* [.../api/bookmarks/{id}]() - enviado no corpo da requisição 
 
 * **DELETE** - remove 1 bookmark pelo ID
 	* [.../api/bookmarks/{id}]() 
