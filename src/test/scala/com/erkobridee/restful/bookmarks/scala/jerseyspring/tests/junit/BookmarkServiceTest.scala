@@ -33,7 +33,7 @@ class BookmarkServiceTest {
     vo.url = "http://service.bookmarkdomain.test/" + System.currentTimeMillis + "/"
     vo = service.insert( vo )
 
-    Assert.assertNotNull( vo.id )
+    Assert.assertNotNull( vo )
   }
 
   // RESTful GET .../{id}
