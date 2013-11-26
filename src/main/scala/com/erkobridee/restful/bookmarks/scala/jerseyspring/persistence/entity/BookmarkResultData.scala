@@ -2,6 +2,7 @@ package com.erkobridee.restful.bookmarks.scala.jerseyspring.persistence.entity
 
 import javax.xml.bind.annotation.XmlRootElement
 import scala.reflect.BeanProperty
+import java.util.List
 
 @XmlRootElement
 @scala.serializable
