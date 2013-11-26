@@ -93,14 +93,14 @@ class BookmarkRest {
     
     log.debug("getList | page: " + page + " | size: " + size)
     
+    val r: BookmarkResultData = dao.list( page, size ) 
+    
     Response
 		.status( Status.OK )
-		.entity( dao.list( page, size ) )
+		.entity( r )
 		.header( "Allow", "GET, POST" )
 		.location( getLocation )
 		.build
-    
-    null
   }
   
   
@@ -115,17 +115,16 @@ class BookmarkRest {
     
     val bookmark: Bookmark = dao.findById( id )
     
-    var response: Response = null
+    var rb: ResponseBuilder = null
     
     if(bookmark != null) {
       
-      response = Response
-					.status( Status.OK )
-					.entity( bookmark )
-					.header( "Allow", "PUT, DELETE" )
-					.location( getLocation )
-					.build
-      
+      rb = Response
+		.status( Status.OK )
+		.entity( bookmark )
+		.header( "Allow", "PUT, DELETE" )
+		.location( getLocation )
+  
     } else {
       
       val resultMessage:ResultMessage = 
@@ -134,15 +133,14 @@ class BookmarkRest {
 	        "id: " + id + " not found."
         ) 
       
-      response = Response
-					.status( Status.NOT_FOUND )
-					.entity( resultMessage )
-					.build
+      rb = Response
+		.status( Status.NOT_FOUND )
+		.entity( resultMessage )
       
     }
     
     // return
-    response
+    rb.build
   }
   
   
@@ -167,6 +165,7 @@ class BookmarkRest {
   
   
   @PUT
+  @Path( "{id}" )
   @Consumes( Array( APPLICATION_JSON ) )
   @Produces( Array( APPLICATION_JSON ) )
   def update( value: Bookmark ): Response = {
