@@ -11,6 +11,7 @@ import javax.ws.rs.core.MediaType._
 import java.util.List
 import com.erkobridee.restful.bookmarks.scala.jerseyspring.persistence.entity.Bookmark
 import javax.ws.rs._
+import com.erkobridee.restful.bookmarks.scala.jerseyspring.persistence.entity.BookmarkResultData
 
 @Component
 @Scope("prototype")
@@ -29,9 +30,9 @@ class BookmarkService {
 
   @GET
   @Produces(Array(APPLICATION_JSON, APPLICATION_XML))
-  def getAll(): List[Bookmark] = {
+  def getAll(): BookmarkResultData = {
     log.debug("getAll")
-    dao.listAll
+    dao.list
   }
 
   @GET
@@ -45,7 +46,7 @@ class BookmarkService {
   @GET
   @Path("search/{name}")
   @Produces(Array(APPLICATION_JSON, APPLICATION_XML))
-  def getByName(@PathParam("name") name: String): List[Bookmark] = {
+  def getByName(@PathParam("name") name: String): BookmarkResultData = {
     log.debug("getByName: " + name)
     dao.findByName(name)
   }

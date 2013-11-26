@@ -10,6 +10,8 @@ import com.erkobridee.restful.bookmarks.scala.jerseyspring.persistence.entity.Bo
 import junit.framework.Assert
 import org.junit.Test
 import java.util.List
+import com.erkobridee.restful.bookmarks.scala.jerseyspring.persistence.entity.BookmarkResultData
+import com.erkobridee.restful.bookmarks.scala.jerseyspring.persistence.entity.BookmarkResultData
 
 @RunWith(classOf[SpringJUnit4ClassRunner])
 @ContextConfiguration(locations = Array("classpath:META-INF/spring/applicationContext.xml"))
@@ -25,27 +27,27 @@ class BookmarkServiceTest {
   // RESTful POST
   @Test
   def testInsert(): Unit = {
-    vo = new Bookmark()
+    vo = new Bookmark
     vo.name = "BookmarkServiceTest Name"
     vo.description = "BookmarkServiceTest Description"
-    vo.url = "http://service.bookmarkdomain.test/" + System.currentTimeMillis() + "/"
-    vo = service.insert(vo)
+    vo.url = "http://service.bookmarkdomain.test/" + System.currentTimeMillis + "/"
+    vo = service.insert( vo )
 
-    Assert.assertNotNull(vo.id)
+    Assert.assertNotNull( vo.id )
   }
 
   // RESTful GET .../{id}
   @Test
   def testGetById(): Unit = {
-    Assert.assertNotNull(service.getById(vo.id))
+    Assert.assertNotNull( service.getById( vo.id ) )
   }
 
   // RESTful GET .../search/{name}
   @Test
   def testGetByName(): Unit = {
-    val list: List[Bookmark] = service.getByName(vo.name)
+    val r: BookmarkResultData = service.getByName( vo.name )
 
-    Assert.assertTrue(list.size() > 0)
+    Assert.assertTrue( r.getData.size > 0 )
   }
 
   // RESTful PUT .../{id}
@@ -55,19 +57,19 @@ class BookmarkServiceTest {
 
     vo.name = nameUpdated
     vo.description = vo.description + "++"
-    vo.url = vo.url + System.currentTimeMillis()
+    vo.url = vo.url + System.currentTimeMillis
 
-    vo = service.update(vo)
+    vo = service.update( vo )
 
-    Assert.assertEquals(vo.name, nameUpdated)
+    Assert.assertEquals( nameUpdated, vo.name )
   }
 
   // RESTful GET
   @Test
   def testGetAll(): Unit = {
-    val list: List[Bookmark] = service.getAll
+    val r: BookmarkResultData = service.getAll
 
-    Assert.assertTrue(list.size() > 0)
+    Assert.assertTrue( r.getData.size > 0 )
   }
 
   // RESTful DELETE
@@ -75,11 +77,11 @@ class BookmarkServiceTest {
   def testDelete(): Unit = {
     val id: Long = vo.id
 
-    service.remove(id)
+    service.remove( id )
 
-    vo = service.getById(id)
+    vo = service.getById( id )
 
-    Assert.assertNull(vo)
+    Assert.assertNull( vo )
   }
 
 }
