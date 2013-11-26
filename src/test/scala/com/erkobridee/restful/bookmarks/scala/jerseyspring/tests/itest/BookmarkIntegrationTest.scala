@@ -19,7 +19,7 @@ import com.erkobridee.restful.bookmarks.scala.jerseyspring.persistence.entity.Bo
 
 @RunWith(classOf[SpringJUnit4ClassRunner])
 @ContextConfiguration(locations = Array("classpath:spring/itest-context.xml"))
-class BookmarkRestTest {
+class BookmarkIntegrationTest {
 
   // ---------------------------------------------------------------------------
 
