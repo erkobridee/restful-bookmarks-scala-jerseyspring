@@ -4,7 +4,9 @@ Ctrl = (function() {
   function Ctrl() {}
 
   Ctrl.prototype.List = function($scope, BookmarkResource) {
-    $scope.bookmarks = BookmarkResource.query();
+    BookmarkResource.get(null, function(result) {
+    	$scope.bookmarks = result.data;
+    });
   }
 
   Ctrl.prototype.New = function($scope, $location, BookmarkResource) {
