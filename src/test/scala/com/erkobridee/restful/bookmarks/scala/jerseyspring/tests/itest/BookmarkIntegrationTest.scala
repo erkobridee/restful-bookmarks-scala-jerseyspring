@@ -52,15 +52,25 @@ class BookmarkIntegrationTest {
   }
   
   @Test
-  def testListAll(): Unit = {
+  def testList(): Unit = {
     val r: BookmarkResultData = restTemplate.getForObject( getBaseUrl(), classOf[BookmarkResultData] )
     Assert.assertTrue( r.getData.size > 0 )
   }
 
   //--- get by id
-  def getById(id: Long): Bookmark = {
+  def getById( id: Long ): Bookmark = {
+    var bookmark: Bookmark = null
+    
     val vars: Map[String, String] = Collections.singletonMap( "id", id + "" )
-    restTemplate.getForObject( getBaseUrl()+"/{id}", classOf[Bookmark], vars )    
+    
+    try{
+    	bookmark = restTemplate.getForObject( getBaseUrl()+"/{id}", classOf[Bookmark], vars )
+    } catch {
+      case e: Exception => {}
+    }
+    
+    // return
+    bookmark
   }
   
   @Test
