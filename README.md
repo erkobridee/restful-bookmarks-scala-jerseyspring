@@ -73,17 +73,17 @@ MIT : [erkobridee.mit-license.org](http://erkobridee.mit-license.org)
 
 	* [Apache Tomcat](http://tomcat.apache.org/) 6.x
 
-	* [Java](http://www.java.com/) 1.6+
+	* [Java](http://www.java.com/) 1.6+ | [Scala](http://www.scala-lang.org/) 2.9.1
 
 * Cliente
 
-	* [AngularJS](http://angularjs.org/) 1.0.7
+	* [AngularJS](http://angularjs.org/) 1.2.1
 
-	* [Twitter Bootstrap](http://getbootstrap.com/) 2.3.2
+	* [Twitter Bootstrap](http://getbootstrap.com/) 3.0.2
 
 * Servidor
 
-	* [Scala](http://www.scala-lang.org/) 2.9.1 
+	* [Java](http://www.java.com/) 1.6+ | [Scala](http://www.scala-lang.org/) 2.9.1
 
 	* [Jersey](http://jersey.java.net/) ([User Guide](http://jersey.java.net/nonav/documentation/latest/user-guide.html))
 
