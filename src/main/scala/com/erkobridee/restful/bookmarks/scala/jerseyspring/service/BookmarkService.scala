@@ -15,7 +15,7 @@ import com.erkobridee.restful.bookmarks.scala.jerseyspring.persistence.entity.Bo
 
 @Component
 @Scope("prototype")
-@Path("/bookmarks")
+@Path("/old/bookmarks")
 class BookmarkService {
   // ---------------------------------------------------------------------------
 
