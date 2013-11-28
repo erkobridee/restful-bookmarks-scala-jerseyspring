@@ -27,7 +27,7 @@ class BookmarkRest {
 
   //----------------------------------------------------------------------------
   
-  val log: Logger = LoggerFactory.getLogger(classOf[BookmarkRest])
+  val log: Logger = LoggerFactory.getLogger( classOf[BookmarkRest] )
   
   //----------------------------------------------------------------------------
   
@@ -70,9 +70,9 @@ class BookmarkRest {
       
   ): Response = {
     
-    log.debug("search: " + find + " | page: " + page + " | size: " + size)
+    log.debug( "search: " + find + " [ page: " + page + " | size: " + size + " ]" )
     
-    val r: BookmarkResultData = dao.findByName(find, page, size)
+    val r: BookmarkResultData = dao.findByName( find, page, size )
     
     Response
 		.status( Status.OK )
@@ -84,14 +84,14 @@ class BookmarkRest {
   
   @GET
   @Produces( Array( APPLICATION_JSON ) )
-  def getList(
+  def list(
   
     @DefaultValue("1") @QueryParam("page") page: Int,
 	@DefaultValue("10") @QueryParam("size") size: Int
       
   ): Response = {
     
-    log.debug("getList | page: " + page + " | size: " + size)
+    log.debug( "list [ page: " + page + " | size: " + size + " ]" )
     
     val r: BookmarkResultData = dao.list( page, size ) 
     
@@ -112,6 +112,8 @@ class BookmarkRest {
     @PathParam("id") id: Long
   
   ): Response = {
+    
+    log.debug( "getById: " + id )
     
     val bookmark: Bookmark = dao.findById( id )
     
@@ -193,9 +195,9 @@ class BookmarkRest {
       
   ): Response = {
     
-    val flag: Boolean = dao.remove(id)
+    val flag: Boolean = dao.remove( id )
     
-    log.debug("remove: " + id + " | status: " + flag)
+    log.debug( "remove: " + id + " | status: " + flag )
     
     var message: ResultMessage = null
     var response: Response = null

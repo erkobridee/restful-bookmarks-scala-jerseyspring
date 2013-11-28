@@ -20,12 +20,12 @@ import com.erkobridee.restful.bookmarks.scala.jerseyspring.persistence.entity.Bo
 @ContextConfiguration(locations = Array("classpath:META-INF/spring/applicationContext.xml"))
 class BookmarkDAOTest {
   
-  // ---------------------------------------------------------------------------
+  //----------------------------------------------------------------------------
 
   @Autowired
   val dao: TraitBookmarkDAO = null
 
-  // ---------------------------------------------------------------------------  
+  //----------------------------------------------------------------------------  
 
   @Test
   def insertTestData(): Unit = {
@@ -35,47 +35,47 @@ class BookmarkDAOTest {
       vo.name = "fake name " + i
       vo.description = "fake description " + i
       vo.url = "http://fake.bookmark" + i + ".domain/"
-      dao.save(vo)
+      dao.save( vo )
     }
   }
 
-  // ---------------------------------------------------------------------------
+  //----------------------------------------------------------------------------
 
   @Test
-  def testCount(): Unit = {
-    Assert.assertTrue(dao.count > 0)
-  }
-  
-  @Test
-  def testListOffsetLimit(): Unit = {
-    val r: BookmarkResultData = dao.list( 0, 3 )
-    
-    Assert.assertNotNull( r )
-    
-    Assert.assertNotNull( r.getData )
-    
-    Assert.assertTrue(r.getData.size == 3)
-  }
-  
-  @Test
-  def testListAll(): Unit = {
+  def test_01_List(): Unit = {
     val r: BookmarkResultData = dao.list
     
     Assert.assertNotNull( r )
     
     Assert.assertNotNull( r.getData )
 
-    val hasObjects: Boolean = r.getData.size > 0
+    val hasObjects: Boolean = ( r.getData.size > 0 )
 
-    if (!hasObjects) {
-      Assert.assertFalse(hasObjects)
+    if ( !hasObjects ) {
+      Assert.assertFalse( hasObjects )
+      
       insertTestData
     }
 
+  }  
+  
+  @Test
+  def test_02_Count(): Unit = {
+    Assert.assertTrue( dao.count > 0 )
+  }
+  
+  @Test
+  def test_03_ListOffsetLimit(): Unit = {
+    val r: BookmarkResultData = dao.list( 0, 3 )
+    
+    Assert.assertTrue( r.getData.size == 3 )
   }
 
+
+  //----------------------------------------------------------------------------
+  
   @Test
-  def testInsert(): Unit = {
+  def test_04_Insert(): Unit = {
     val time: Long = System.currentTimeMillis
     
     vo = new Bookmark
@@ -88,30 +88,38 @@ class BookmarkDAOTest {
     Assert.assertNotNull( vo.getId )
   }
   
+  //----------------------------------------------------------------------------
+  
   @Test
-  def testFindByValidId(): Unit = {
+  def test_05_FindByValidId(): Unit = {
     Assert.assertNotNull( dao.findById( vo.id ) )
   }
   
   @Test
-  def testFindByInvalidId(): Unit = {
+  def test_05_FindByInvalidId(): Unit = {
     Assert.assertNull( dao.findById( -100 ) )
   }
   
+  //----------------------------------------------------------------------------
+  
   @Test
-  def testFindByValidName(): Unit = {
+  def test_06_FindByValidName(): Unit = {
     val r: BookmarkResultData = dao.findByName( vo.name )
+    
     Assert.assertTrue( r.getData.size > 0 )
   }
   
   @Test
-  def testFindByInvalidName(): Unit = {
-    val r: BookmarkResultData = dao.findByName("***" + vo.name + "***")
+  def test_06_FindByInvalidName(): Unit = {
+    val r: BookmarkResultData = dao.findByName( "***" + vo.name + "***" )
+    
     Assert.assertFalse( r.getData.size > 0 )
   }
   
+  //----------------------------------------------------------------------------
+  
   @Test
-  def testUpdate(): Unit = {
+  def test_07_Update(): Unit = {
     val nameUpdated: String = vo.name + "++"
     
     vo.name = nameUpdated
@@ -122,16 +130,19 @@ class BookmarkDAOTest {
     
     Assert.assertEquals( nameUpdated, vo.name )
   }
+  
+  //----------------------------------------------------------------------------
 	
   @Test
-  def testRemove(): Unit = {
-    Assert.assertTrue( dao.remove( vo.id ) )
+  def test_08_RemoveByInvalidId(): Unit = {
+    Assert.assertFalse( dao.remove( -100 ) )
   }
   
   @Test
-  def testCheckRemoved(): Unit = {
-	vo = dao.findById( vo.id )
-    Assert.assertNull( vo )
+  def test_08_RemoveById(): Unit = {
+    Assert.assertTrue( dao.remove( vo.id ) )
   }
+  
+  //----------------------------------------------------------------------------
   
 }
