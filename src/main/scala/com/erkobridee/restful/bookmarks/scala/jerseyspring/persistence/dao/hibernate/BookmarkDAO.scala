@@ -20,11 +20,11 @@ import com.erkobridee.restful.bookmarks.scala.jerseyspring.persistence.entity.Bo
 @Repository("bookmarkDAO")
 class BookmarkDAO extends HibernateDaoSupport with TraitBookmarkDAO {
 
-  // --------------------------------------------------------------------------
+  //----------------------------------------------------------------------------
   
   val log : Logger = LoggerFactory.getLogger( classOf[BookmarkDAO] )
   
-  // --------------------------------------------------------------------------
+  //----------------------------------------------------------------------------
   
   @Autowired
   def init( sessionFactory: SessionFactory ): Unit = {
@@ -36,7 +36,7 @@ class BookmarkDAO extends HibernateDaoSupport with TraitBookmarkDAO {
     generateInitData
   }
   
-  // --------------------------------------------------------------------------
+  //----------------------------------------------------------------------------
   
   def generateInitData(): Unit = {
     
